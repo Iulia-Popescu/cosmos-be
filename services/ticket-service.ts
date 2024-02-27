@@ -112,7 +112,7 @@ export function getTicketsPage(
         throw new Error('Page and pageSize are required query parameters');
     }
 
-    const tickets = getAllGridTickets();
+    const tickets: TicketGridDto[] = getAllGridTickets();
 
     const page = parseInt(reqQuery.page) || 1;
     const pageSize = parseInt(reqQuery.pageSize) || 5;
@@ -120,7 +120,7 @@ export function getTicketsPage(
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
 
-    const paginatedResources = tickets.slice(startIndex, endIndex);
+    const paginatedResources: TicketGridDto[] = tickets.slice(startIndex, endIndex);
 
     return {
         page,
